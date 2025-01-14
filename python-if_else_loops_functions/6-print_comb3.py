@@ -1,8 +1,8 @@
 #!/usr/bin/python3
-k = 1
 for i in range(9):
-    for j in range(k, 10):
-        print(f"{i}{j}, ", end="")
-    k += 1
-print(f"89")
+    for j in range(i + 1, 10):
+        if i == 8:
+            print(f"{i}{j}")
+        else:
+            print(f"{i}{j}, ", end="")
 
