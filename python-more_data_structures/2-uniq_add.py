@@ -7,4 +7,3 @@ def uniq_add(my_list=[]):
             aux.append(i)
             result = result + i
     return result
-        
