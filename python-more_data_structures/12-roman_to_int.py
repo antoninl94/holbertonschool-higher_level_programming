@@ -4,6 +4,8 @@ def roman_to_int(roman_string):
     result = 0
     prev = 0
     if roman_string:
+        return 0
+    if roman_string:
         for char in reversed(roman_string):
             if char in roman:
                 value = roman[char]
@@ -13,5 +15,3 @@ def roman_to_int(roman_string):
                     result += value
                     prev = value
         return int(result)
-    else:
-        return 0
