@@ -6,12 +6,12 @@ def roman_to_int(roman_string):
     if roman_string:
         for char in reversed(roman_string):
             if char in roman:
-                    value = roman[char]
-                    if value < prev:
-                         result -= value
-                    else:
-                         result += value
-                         prev = value
+                value = roman[char]
+                if value < prev:
+                    result -= value
+                else:
+                    result += value
+                    prev = value
         return result
     else:
-        return
+        return 0
