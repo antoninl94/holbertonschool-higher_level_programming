@@ -6,6 +6,9 @@ Using ``add_integer``
 
 >>> add_integer = __import__('0-add_integer').add_integer
 
+-------------------
+
+Trying :
 >>> add_integer(2, 3)
 5
 
@@ -13,14 +16,15 @@ Using ``add_integer``
 0
 
 >>> add_integer(2.5, 3.5)
-6.0
+5
 
 >>> add_integer("Hello", 1)
-Traceback (most recent call last):
-...
-TypeError: can only concatenate str (not "int") to str
+a must be an integer
+
+>>> add_integer(1, "Hello")
+b must be an integer
 
 >>> add_integer()
 Traceback (most recent call last):
 ...
-TypeError: add_integer() missing 2 required positional arguments: 'a' and 'b'
+TypeError: add_integer() missing 1 required positional argument: 'a'
