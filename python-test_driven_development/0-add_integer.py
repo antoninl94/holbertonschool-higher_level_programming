@@ -7,6 +7,7 @@ The 0-add_integer module supplies one function, add_integer(). For exemple,
 3
 """
 
+
 def add_integer(a, b=98):
     """
     Add two numbers and return the sum.

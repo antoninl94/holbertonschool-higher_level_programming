@@ -19,10 +19,10 @@ Trying :
 5
 
 >>> add_integer("Hello", 1)
-a must be an integer
+TypeError('a must be an integer')
 
 >>> add_integer(1, "Hello")
-b must be an integer
+TypeError('b must be an integer')
 
 >>> add_integer()
 Traceback (most recent call last):
