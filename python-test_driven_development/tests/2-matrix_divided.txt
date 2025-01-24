@@ -1,0 +1,17 @@
+The ``2-matrix_divided`` module
+=======================
+
+Using ``matrix_divided``
+-----------------------
+
+>>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+
+-----------------------
+
+Trying:
+>>> matrix_divided(2, 0)
+Traceback (most recent call last):
+...
+TypeError: 'int' object is not iterable
+
+>>>
