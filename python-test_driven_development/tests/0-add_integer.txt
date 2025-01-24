@@ -1,0 +1,26 @@
+The ``0-add_integer`` module
+======================
+
+Using ``add_integer``
+-------------------
+
+>>> add_integer = __import__('0-add_integer').add_integer
+
+>>> add_integer(2, 3)
+5
+
+>>> add_integer(-1, 1)
+0
+
+>>> add_integer(2.5, 3.5)
+6.0
+
+>>> add_integer("Hello", 1)
+Traceback (most recent call last):
+...
+TypeError: can only concatenate str (not "int") to str
+
+>>> add_integer()
+Traceback (most recent call last):
+...
+TypeError: add_integer() missing 2 required positional arguments: 'a' and 'b'
