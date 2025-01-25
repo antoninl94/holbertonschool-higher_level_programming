@@ -10,20 +10,30 @@ Using ``text_indentation``
 
 Trying:
 >>> text_indentation("""Hello, worlds: How are you?""")
-Hello,
-<BLANKLINE>
-worlds:
+Hello, worlds:
 <BLANKLINE>
 How are you?
 <BLANKLINE>
 
 >>> text_indentation("Hello, worlds: How are you?")
-Hello,
-<BLANKLINE>
-worlds:
+Hello, worlds:
 <BLANKLINE>
 How are you?
 <BLANKLINE>
+
+>>> text_indentation("Holberton.School")
+Holberton.
+<BLANKLINE>
+School
+
+>>> text_indentation("Holberton. School? How are you: John")
+Holberton.
+<BLANKLINE>
+School?
+<BLANKLINE>
+How are you:
+<BLANKLINE>
+John
 
 >>> text_indentation()
 Traceback (most recent call last):
