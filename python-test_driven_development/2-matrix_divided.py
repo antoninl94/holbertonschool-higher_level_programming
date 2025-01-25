@@ -21,6 +21,8 @@ def matrix_divided(matrix, div):
     """
     Divide all elements of a matrix and return the result.
     """
+    if not isinstance(div, (int, float)):
+        raise TypeError("div must be a number")
     if div == 0:
         raise ZeroDivisionError('division by zero')
     for row in matrix:
