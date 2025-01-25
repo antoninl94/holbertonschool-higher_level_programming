@@ -21,9 +21,14 @@ def matrix_divided(matrix, div):
     """
     Divide all elements of a matrix and return the result.
     """
+    for row in matrix:
+        if len(row) != len(matrix[0]):
+            raise TypeError('Each row of the matrix must have the same size')
     try:
         result = [[divide(element, div) for element in row] for row in matrix]
         return result
-    except ZeroDivisionError as e:
-        print(e)
+    except ZeroDivisionError:
+        return "division by zero"
+    except TypeError as te:
+        return te
     return
