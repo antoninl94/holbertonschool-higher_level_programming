@@ -30,7 +30,7 @@ Trying:
 >>> print_square("a")
 Traceback (most recent call last):
 ...
-TypeError: '<' not supported between instances of 'str' and 'int'
+Exception: size must be an integer
 
 >>> print_square()
 Traceback (most recent call last):
