@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 """
 This is the '0-square' module.
 """
@@ -8,5 +8,4 @@ class Square:
     """
     This is the square class.
     """
-    def __init__(self):
-        pass
+    pass
