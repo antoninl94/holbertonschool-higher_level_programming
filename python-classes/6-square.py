@@ -43,7 +43,6 @@ class Square:
         This is the position getter
         """
         return self.__position
-    
 
     @position.setter
     def position(self, value):
@@ -68,4 +67,4 @@ class Square:
             for i in range(self.position[1]):
                 print()
             for j in range(self.size):
-                    print(" " * self.position[0] + '#' * self.size)
+                print(" " * self.position[0] + '#' * self.size)
