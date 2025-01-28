@@ -32,7 +32,7 @@ class Rectangle:
         """
         This is the width setter of the rectangle
         """
-        self.__width == value
+        self.__width = value
 
     @property
     def height(self):
@@ -46,4 +46,4 @@ class Rectangle:
         """
         This is the width setter of the rectangle
         """
-        self.__height == value
+        self.__height = value
