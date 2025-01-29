@@ -65,7 +65,7 @@ class Rectangle:
     def __str__(self):
         rect = ""
         for _ in range(self.height):
-            for _ in range(self.width):
+            for i in range(self.width):
                 rect += "#"
             rect += "\n"
-        return rect
+        return rect.strip()
