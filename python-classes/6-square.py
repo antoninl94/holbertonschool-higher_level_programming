@@ -9,9 +9,14 @@ class Square:
     This is the square class.
     """
     def __init__(self, size=0, position=(0, 0)):
+        """
+        This is the method to initialize attribute of the Square class
+        """
+        if not isinstance(position[0], int) or not isinstance(position[1], int):
+            raise TypeError('position must be a tuple of 2 positive integers')
         if position[0] < 0 or position[1] < 0:
             raise TypeError('position must be a tuple of 2 positive integers')
-        if len(position) > 2:
+        if len(position) > 2 or len(position) < 2:
             raise TypeError('position must be a tuple of 2 positive integers')
         if not isinstance(size, int):
             raise TypeError('size must be an integer')
