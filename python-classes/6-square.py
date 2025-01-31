@@ -12,18 +12,8 @@ class Square:
         """
         This is the method to initialize attribute of the Square class
         """
-        if not isinstance(size, int):
-            raise TypeError('size must be an integer')
-        if size < 0:
-            raise ValueError('size must be >= 0')
-        if not isinstance(position[0], int) or not isinstance(position[1], int):
-            raise TypeError('position must be a tuple of 2 positive integers')
-        if position[0] < 0 or position[1] < 0:
-            raise TypeError('position must be a tuple of 2 positive integers')
-        if len(position) != 2:
-            raise TypeError('position must be a tuple of 2 positive integers')
-        self.position = position
         self.size = size
+        self.position = position
 
     def area(self):
         """
