@@ -36,3 +36,19 @@ ValueError: age must be greater than 0
 Traceback (most recent call last):
 ...
 TypeError: BaseGeometry.integer_validator() missing 1 required positional argument: 'value'
+
+>>> mod = __import__("7-base_geometry").BaseGeometry.integer_validator.__doc__
+>>> len(mod) > 1
+True
+
+>>> mod = __import__("7-base_geometry").BaseGeometry.area.__doc__
+>>> len(mod) > 1
+True
+
+>>> mod = __import__("7-base_geometry").BaseGeometry.__doc__
+>>> len(mod) > 1
+True
+
+>>> mod = __import__("7-base_geometry").__doc__
+>>> len(mod) > 1
+True
