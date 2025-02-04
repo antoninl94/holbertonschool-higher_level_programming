@@ -11,4 +11,7 @@ class MyList(list):
     """
 
     def print_sorted(self):
-        print(sorted(self))
+        if not isinstance(self, list):
+            raise Exception
+        else:
+            print(sorted(self))
