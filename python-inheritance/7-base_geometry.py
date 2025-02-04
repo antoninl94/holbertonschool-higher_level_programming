@@ -14,7 +14,7 @@ class BaseGeometry:
         Does nothing
         """
         pass
-
+    
     def area(self):
         """
         This is the area function
@@ -25,7 +25,7 @@ class BaseGeometry:
         """
         This function check if it's an integer or not
         """
-        if not isinstance(value, int):
+        if type(value) is not int:
             raise TypeError(f"{name} must be an integer")
         if value <= 0:
             raise ValueError(f"{name} must be greater than 0")
