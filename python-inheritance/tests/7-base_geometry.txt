@@ -9,42 +9,51 @@ Using ``integer_validator``
 -----------------------
 
 Trying:
+
+# Testing with a test ok
 >>> bg = BaseGeometry()
 >>> bg.integer_validator("my_int", 12)
 >>> bg.integer_validator("width", 89)
 
+# Testing with name not an integer
 >>> bg = BaseGeometry()
 >>> bg.integer_validator("name", "john")
 Traceback (most recent call last):
 ...
 TypeError: name must be an integer
 
+# Testing if distance is positive
 >>> bg = BaseGeometry()
 >>> bg.integer_validator("distance", -4)
 Traceback (most recent call last):
 ...
 ValueError: distance must be greater than 0
 
+Testing if age is positive
 >>> bg = BaseGeometry()
 >>> bg.integer_validator("age", 0)
 Traceback (most recent call last):
 ...
 ValueError: age must be greater than 0
 
+# Testing the number of argument
 >>> bg = BaseGeometry()
 >>> bg.integer_validator("age",)
 Traceback (most recent call last):
 ...
 TypeError: BaseGeometry.integer_validator() missing 1 required positional argument: 'value'
 
+# Testing the docstring length
 >>> mod = __import__("7-base_geometry").BaseGeometry.integer_validator.__doc__
 >>> len(mod) > 1
 True
 
+# Testing the docstring length
 >>> mod = __import__("7-base_geometry").BaseGeometry.__doc__
 >>> len(mod) > 1
 True
 
+# Testing the docstring length
 >>> mod = __import__("7-base_geometry").__doc__
 >>> len(mod) > 1
 True
