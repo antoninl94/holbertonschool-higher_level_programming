@@ -11,6 +11,9 @@ class MyList(list):
     """
 
     def print_sorted(self):
+        """
+        This function print the list sorted
+        """
         if not isinstance(self, list):
             raise Exception
         else:
