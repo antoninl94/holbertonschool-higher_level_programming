@@ -8,8 +8,6 @@ Using ``integer_validator``
 
 -----------------------
 
-Trying:
-
 # Testing with a test ok
 >>> bg = BaseGeometry()
 >>> bg.integer_validator("my_int", 12)
