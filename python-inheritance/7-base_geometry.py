@@ -8,6 +8,13 @@ class BaseGeometry:
     """
     This is the baseclass ''BaseGeometry''
     """
+
+    def __init__(self):
+        """
+        Does nothing
+        """
+        pass
+
     def area(self):
         """
         This is the area function
