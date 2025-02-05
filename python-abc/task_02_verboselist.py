@@ -26,7 +26,7 @@ class VerboseList(list):
         This function remove a number equal to int
         """
         if int not in self:
-            raise TypeError
+            raise ValueError
         print(f"Removed [{int}] from the list.")
         super().remove(int)
 
