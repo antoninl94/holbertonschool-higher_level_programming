@@ -24,7 +24,7 @@ class Circle(Shape):
     This is the ``Circle`` subclass
     """
     def __init__(self, radius=0):
-        if not isinstance(radius, int):
+        if type(radius) is not int:
             raise TypeError("radius must be an integer")
         if radius < 0:
             raise ValueError("radius must be positive")
@@ -42,9 +42,9 @@ class Rectangle(Shape):
     This is the ```Rectangle`` subclass
     """
     def __init__(self, width=0, height=0):
-        if not isinstance(width, int):
+        if type(width) is not int:
             raise TypeError("width must be an integer")
-        if not isinstance(height, int):
+        if type(height) is not int:
             raise TypeError("height must be an integer")
         self.width = width
         self.height = height
