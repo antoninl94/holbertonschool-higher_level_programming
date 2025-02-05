@@ -2,6 +2,8 @@
 """
 This is the ``task_02_verboselist`` module
 """
+
+
 class VerboseList(list):
     """
     This is the ``VerboseList`` subclass
@@ -20,7 +22,7 @@ class VerboseList(list):
         """
         print(f"Extended the list with [{len(int)}] items.")
         super().extend(int)
-    
+
     def remove(self, int):
         """
         This function remove a number equal to int
@@ -34,7 +36,7 @@ class VerboseList(list):
         """
         This function remove the number at the index
         """
-        if self[int] == None:
+        if self[int] is None:
             raise IndexError
         print(f"Popped [{self[int]}] from the list.")
         ret = super().pop(int)
