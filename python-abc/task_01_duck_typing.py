@@ -46,6 +46,8 @@ class Rectangle(Shape):
             raise TypeError("width must be an integer")
         if not isinstance(height, int):
             raise TypeError("height must be an integer")
+        if width < 0 or height < 0:
+            raise ValueError("must be positive")
         self.width = width
         self.height = height
 
@@ -60,7 +62,7 @@ def shape_info(shape):
     """
     This is the ``shape_info`` function
     """
-    if shape is not None:
+    if hasattr(shape, 'area') and hasattr(shape, 'perimeter'):
         print("Area: {}".format(shape.area()))
         print("Perimeter: {}".format(shape.perimeter()))
     else:
