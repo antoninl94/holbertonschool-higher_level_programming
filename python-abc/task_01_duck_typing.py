@@ -60,8 +60,8 @@ def shape_info(shape):
     """
     This is the ``shape_info`` function
     """
-    if hasattr(shape, 'area') and hasattr(shape, 'perimeter'):
+    try:
         print("Area: {}".format(shape.area()))
         print("Perimeter: {}".format(shape.perimeter()))
-    else:
+    except AttributeError:
         raise TypeError
