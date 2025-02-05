@@ -52,8 +52,5 @@ def shape_info(shape):
     """
     This is the ``shape_info`` function
     """
-    try:
-        print("Area: {}".format(shape.area()))
-        print("Perimeter: {}".format(shape.perimeter()))
-    except AttributeError:
-        raise TypeError
+    print("Area: {}".format(shape.area()))
+    print("Perimeter: {}".format(shape.perimeter()))
