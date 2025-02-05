@@ -25,6 +25,8 @@ class VerboseList(list):
         """
         This function remove a number equal to int
         """
+        if int not in self:
+            raise TypeError
         print(f"Removed [{int}] from the list.")
         super().remove(int)
 
@@ -32,5 +34,8 @@ class VerboseList(list):
         """
         This function remove the number at the index
         """
+        if self[int] == None:
+            raise IndexError
         print(f"Popped [{self[int]}] from the list.")
-        super().pop(int)
+        ret = super().pop(int)
+        return ret
