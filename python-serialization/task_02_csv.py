@@ -10,15 +10,14 @@ def convert_csv_to_json(csvFile):
     """
     This function convert csv file to json file
     """
-    data = {}
+    data = []
     try:
         with open(csvFile) as file:
             csvReader = csv.DictReader(file)
             for rows in csvReader:
-                key = rows['name']
-                data[key] = rows
+                data.append(rows)
         with open('data.json', "w") as dataf:
-            json.dump(data, dataf, indent=4)
+            json.dump(data, dataf)
         return True
     except Exception:
         return False
