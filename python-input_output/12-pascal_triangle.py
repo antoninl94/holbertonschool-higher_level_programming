@@ -5,6 +5,9 @@ This is the ``12-pascal_triangle`` module
 
 
 def pascal_triangle(n):
+    """
+    This function return a list of lists of integers
+    """
     if n <= 0:
         return
     triangle = [[1]]
