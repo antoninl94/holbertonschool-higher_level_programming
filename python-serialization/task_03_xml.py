@@ -14,6 +14,8 @@ def serialize_to_xml(dictionary, filename):
         for key, value in dictionary.items():
             items = ET.SubElement(root, key)
             items.text = str(value)
+            tree = ET.ElementTree(root)
+            tree.write(filename)
     except Exception:
         return
 
