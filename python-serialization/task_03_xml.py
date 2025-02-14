@@ -9,20 +9,25 @@ def serialize_to_xml(dictionary, filename):
     """
     This function serialize an object in xml format
     """
-    root = ET.Element("data")
-    for key, value in dictionary.items():
-        items = ET.SubElement(root, key)
-        items.text = str(value)
+    try:
+        root = ET.Element("data")
+        for key, value in dictionary.items():
+            items = ET.SubElement(root, key)
+            items.text = str(value)
+    except Exception:
+        return
 
 
 def deserialize_from_xml(filename):
     """
     This function create an object from a xml file
     """
-    data = ET.parse(filename)
-    root = data.getroot()
-
-    dictionnary = {}
-    for child in root:
-        dictionnary[child.tag] = child.text
-    return dictionnary
+    try:
+        data = ET.parse(filename)
+        root = data.getroot()
+        dictionnary = {}
+        for child in root:
+            dictionnary[child.tag] = child.text
+        return dictionnary
+    except Exception:
+        return
