@@ -14,13 +14,14 @@ def serialize_to_xml(dictionary, filename):
         items = ET.SubElement(root, key)
         items.text = str(value)
 
+
 def deserialize_from_xml(filename):
     """
     This function create an object from a xml file
     """
     data = ET.parse(filename)
     root = data.getroot()
-    
+
     dictionnary = {}
     for child in root:
         dictionnary[child.tag] = child.text
