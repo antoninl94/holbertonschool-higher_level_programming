@@ -19,7 +19,6 @@ def fetch_and_print_posts():
                 print(post['title'])
 
 
-
 def fetch_and_save_posts():
     """
     This function fetches all post from JSONplaceholder
