@@ -22,6 +22,7 @@ def fetch_and_print_posts():
 def fetch_and_save_posts():
     """
     This function fetches all post from JSONplaceholder
+    and write id, title, body in csv file
     """
     response = requests.get('https://jsonplaceholder.typicode.com/posts')
     if response.status_code == 200:
