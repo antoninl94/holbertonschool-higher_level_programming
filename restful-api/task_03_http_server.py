@@ -45,8 +45,5 @@ class BaseHTTPSubclass(http.server.BaseHTTPRequestHandler):
 PORT = 8001
 Handler = BaseHTTPSubclass
 
-try:
-    with socketserver.TCPServer(("", PORT), Handler) as httpd:
-        httpd.serve_forever()
-except KeyboardInterrupt:
-    httpd.socket.close()
+with socketserver.TCPServer(("", PORT), Handler) as httpd:
+    httpd.serve_forever()
