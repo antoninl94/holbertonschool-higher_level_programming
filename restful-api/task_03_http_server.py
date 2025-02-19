@@ -9,7 +9,8 @@ import json
 
 class BaseHTTPSubclass(http.server.BaseHTTPRequestHandler):
     """
-    This is the ``BaseHTTPSubclass`` subclass, inherited from ``BaseHTTPRequestHandler``
+    This is the ``BaseHTTPSubclass`` subclass,
+    inherited from ``BaseHTTPRequestHandler``
     """
     def do_GET(self):
         """
