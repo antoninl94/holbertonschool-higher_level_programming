@@ -26,14 +26,14 @@ class BaseHTTPSubclass(http.server.BaseHTTPRequestHandler):
             self.send_header("Content-type", "application/json")
             self.end_headers()
             resp = {"name": "John", "age": 30, "city": "New York"}
-            self.wfile.write(json.dumps(resp).encode())
+            self.wfile.write(json.dumps(resp).encode("utf-8"))
         elif self.path == '/info':
             self.send_response(200)
             self.send_header("Content-type", "application/json")
             self.end_headers()
             resp = {"version": "1.0", "description":
                     "A simple API built with http.server"}
-            self.wfile.write(json.dumps(resp).encode())
+            self.wfile.write(json.dumps(resp).encode("utf-8"))
         elif self.path == '/status':
             self.send_response(200)
             self.send_header("Content-Type", "text/plain")
@@ -48,4 +48,5 @@ class BaseHTTPSubclass(http.server.BaseHTTPRequestHandler):
 
 PORT = 8000
 with socketserver.TCPServer(("", PORT), BaseHTTPSubclass) as httpd:
+    print(f"Serving at port {PORT}")
     httpd.serve_forever()
