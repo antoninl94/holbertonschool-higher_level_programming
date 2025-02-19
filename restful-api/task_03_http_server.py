@@ -36,10 +36,10 @@ class BaseHTTPSubclass(http.server.BaseHTTPRequestHandler):
             self.send_response(200)
             self.wfile.write("Ok".encode())
         else:
-            self.send_error(404)
+            self.send_error(404, "Endpoint not found")
 
 
-PORT = 8000
+PORT = 8001
 Handler = BaseHTTPSubclass
 
 try:
