@@ -43,7 +43,7 @@ class BaseHTTPSubclass(http.server.BaseHTTPRequestHandler):
             self.send_error(404, "Endpoint not found")
 
 
-PORT = 8001
+PORT = 8000
 Handler = BaseHTTPSubclass
 
 with socketserver.TCPServer(("", PORT), Handler) as httpd:
