@@ -18,18 +18,18 @@ class BaseHTTPSubclass(http.server.BaseHTTPRequestHandler):
         """
         if self.path == '/':
             self.send_response(200)
-            self.send_header("Content-Type", "text/plain")
+            self.send_header("Content-type", "text/plain")
             self.end_headers()
-            self.wfile.write("Hello, this is a simple API!".encode())
+            self.wfile.write(b"Hello, this is a simple API!")
         elif self.path == '/data':
             self.send_response(200)
-            self.send_header("Content-Type", "application/json")
+            self.send_header("Content-type", "application/json")
             self.end_headers()
             resp = {"name": "John", "age": 30, "city": "New York"}
             self.wfile.write(json.dumps(resp).encode())
         elif self.path == '/info':
             self.send_response(200)
-            self.send_header("Content-Type", "application/json")
+            self.send_header("Content-type", "application/json")
             self.end_headers()
             resp = {"version": "1.0", "description":
                     "A simple API built with http.server"}
@@ -41,9 +41,9 @@ class BaseHTTPSubclass(http.server.BaseHTTPRequestHandler):
             self.wfile.write("Ok".encode())
         else:
             self.send_response(404)
-            self.send_header("Content-Type", "text/plain")
+            self.send_header("Content-type", "text/plain")
             self.end_headers()
-            self.wfile.write("Endpoint not found".encode())
+            self.wfile.write(b"Endpoint not found")
 
 
 PORT = 8000
