@@ -38,7 +38,7 @@ class BaseHTTPSubclass(http.server.BaseHTTPRequestHandler):
             self.send_response(200)
             self.send_header("Content-Type", "text/plain")
             self.end_headers()
-            self.wfile.write("Ok".encode())
+            self.wfile.write(b"Ok")
         else:
             self.send_response(404)
             self.send_header("Content-type", "text/plain")
@@ -47,7 +47,5 @@ class BaseHTTPSubclass(http.server.BaseHTTPRequestHandler):
 
 
 PORT = 8000
-Handler = BaseHTTPSubclass
-
-with socketserver.TCPServer(("", PORT), Handler) as httpd:
+with socketserver.TCPServer(("", PORT), BaseHTTPSubclass) as httpd:
     httpd.serve_forever()
