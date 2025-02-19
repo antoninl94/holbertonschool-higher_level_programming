@@ -12,20 +12,38 @@ class BaseHTTPSubclass(http.server.BaseHTTPRequestHandler):
         """
         This function handle GET requests
         """
-        self.send_response(200)
-        self.end_headers()
-        self.wfile.write("Hello, this is a simple API!".encode())
-        if self.path == '/data':
-            resp = json.dumps({"name": "John", "age": 30, "city": "New York"})\
-                .encode()
+        if self.path == '/':
+            self.send_header("Content-type", "text/plain")
+            self.end_headers()
             self.send_response(200)
+            self.wfile.write("Hello, this is a simple API!".encode())
+        elif self.path == '/data':
             self.send_header("Content-type", "application/json")
             self.end_headers()
-            self.wfile.write(resp)
+            resp = {"name": "John", "age": 30, "city": "New York"}
+            self.send_response(200)
+            self.wfile.write(json.dumps(resp).encode())
+        elif self.path == '/info':
+            self.send_header("Content-type", "application/json")
+            self.end_headers()
+            resp = {"version": "1.0", "description":
+                    "A simple API built with http.server"}
+            self.send_response(200)
+            self.wfile.write(json.dumps(resp).encode())
+        elif self.path == '/status':
+            self.send_header("Content-type", "text/plain")
+            self.end_headers()
+            self.send_response(200)
+            self.wfile.write("Ok".encode())
+        else:
+            self.send_error(404)
 
 
-PORT = 8008
+PORT = 8000
 Handler = BaseHTTPSubclass
 
-with socketserver.TCPServer(("", PORT), Handler) as httpd:
-    httpd.serve_forever()
+try:
+    with socketserver.TCPServer(("", PORT), Handler) as httpd:
+        httpd.serve_forever()
+except KeyboardInterrupt:
+    httpd.socket.close()
