@@ -30,12 +30,10 @@ def status():
 @app.route('/users/<username>')
 def userInfo(username):
     """Display specified user"""
-    user = users.get(username)
-    if user is not None:
-        return jsonify(user)
-    else:
-        error = {"error": "User not found"}
-        return jsonify(error), 404
+    if username in users:
+        return jsonify(users[username])
+    error = {"error": "User not found"}
+    return jsonify(error), 404
 
 
 @app.route('/add_user', methods=['POST'])
