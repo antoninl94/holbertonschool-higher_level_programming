@@ -11,21 +11,25 @@ users = {}
 
 @app.route('/')
 def home():
-    return "<p>Welcome to the Flask API!</p>"
+    """Handle root URL"""
+    return "Welcome to the Flask API!"
 
 
 @app.route('/data')
 def data():
+    """Display data"""
     return jsonify(list(users.keys()))
 
 
 @app.route('/status')
 def status():
-    return "<p>OK</p>"
+    """Display Status"""
+    return "OK"
 
 
 @app.route('/users/<username>')
 def userInfo(username):
+    """Display specified user"""
     user = users.get(username)
     if user is not None:
         return jsonify(user)
@@ -36,9 +40,7 @@ def userInfo(username):
 
 @app.route('/add_user', methods=['POST'])
 def add_user():
-    """
-    Add a new user
-    """
+    """Add a new user"""
     userdata = request.get_json()
     username = userdata.get('username')
     if not username:
