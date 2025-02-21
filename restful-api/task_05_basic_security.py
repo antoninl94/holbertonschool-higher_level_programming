@@ -11,7 +11,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 app = Flask(__name__)
 auth = HTTPBasicAuth()
-app.config['JWT_SECRET_KEY'] = "chaussette"
+app.config['JWT_SECRET_KEY'] = "cugiYu645iuh/@jigb"
 jwt = JWTManager(app)
 users = {
     "user1": {"username": "user1",
@@ -40,8 +40,9 @@ def basic_protected():
 @app.route('/login', methods=['POST'])
 def login():
     """This is the login method"""
-    username = request.json.get('username')
-    password = request.json.get('password')
+    data = request.json
+    username = data.get('username')
+    password = data.get('password')
 
     if username in users and \
        check_password_hash(users[username]['password'], password):
@@ -61,6 +62,7 @@ def jwt_protected():
 
 
 @app.route('/admin-only', methods=['GET'])
+@jwt_required()
 def admin_only():
     """check for the role during login"""
     claims = get_jwt()
