@@ -40,7 +40,7 @@ def basic_protected():
 
 @app.route('/login', methods=['POST'])
 def login():
-    
+    """This is the login method"""
     username = request.json.get('username')
     password = request.json.get('password')
 
@@ -57,6 +57,7 @@ def login():
 @app.route('/jwt-protected', methods=['GET'])
 @jwt_required()
 def jwt_protected():
+    """Check for the authorization"""
     return "JWT Auth: Access Granted"
 
 
@@ -68,6 +69,36 @@ def admin_only():
     if role != 'admin':
         return jsonify({"error": "Admin access required"}), 403
     return "Admin Access: Granted"
+
+
+@jwt.unauthorized_loader
+def handle_unauthorized_error(err):
+    """handle unauthorized error"""
+    return jsonify({"error": "Missing or invalid token"}), 401
+
+
+@jwt.invalid_token_loader
+def handle_invalid_token_error(err):
+    """handle invalid token error"""
+    return jsonify({"error": "Invalid token"}), 401
+
+
+@jwt.expired_token_loader
+def handle_expired_token_error(err):
+    """handle expired token error"""
+    return jsonify({"error": "Token has expired"}), 401
+
+
+@jwt.revoked_token_loader
+def handle_revoked_token_error(err):
+    """handle revoked token error"""
+    return jsonify({"error": "Token has been revoked"}), 401
+
+
+@jwt.needs_fresh_token_loader
+def handle_needs_fresh_token_error(err):
+    """handle fresh token"""
+    return jsonify({"error": "Fresh token required"}), 401
 
 
 if __name__ == '__main__':
