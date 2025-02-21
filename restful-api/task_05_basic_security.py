@@ -5,7 +5,7 @@ This is the ``task_05_basic_security`` module
 from flask import Flask, request, jsonify
 from flask_httpauth import HTTPBasicAuth
 from flask_jwt_extended import JWTManager, jwt_required
-from flask_jwt_extended import get_jwt_identity, create_access_token
+from flask_jwt_extended import create_access_token, get_jwt
 from werkzeug.security import generate_password_hash, check_password_hash
 
 
@@ -33,29 +33,41 @@ def verify_password(username, password):
 
 @app.route('/basic-protected', methods=['GET'])
 @auth.login_required
-def login_required():
+def basic_protected():
     """Ask for login"""
     return "Basic Auth: Access Granted"
 
 
 @app.route('/login', methods=['POST'])
-def login_jwt():
-    username = request.json.get('username', None)
-    password = request.json.get('password', None)
-    if not username or not password:
-        return None
+def login():
+    
+    username = request.json.get('username')
+    password = request.json.get('password')
+
     if username in users and \
        check_password_hash(users[username]['password'], password):
-        access_token = create_access_token(identity=username)
-        return jsonify(access_token), 200
+        role = users[username]["role"]
+        access_token = create_access_token(identity=username,
+                                           additional_claims={"role": role})
+        return jsonify(access_token=access_token), 200
+
+    return jsonify({"error": "Invalid username or password"}), 401
 
 
 @app.route('/jwt-protected', methods=['GET'])
 @jwt_required()
-def access_login_jwt():
-    current_user = get_jwt_identity()
-    return jsonify(logged_in_as=current_user), 200
+def jwt_protected():
+    return "JWT Auth: Access Granted"
 
+
+@app.route('/admin-only', methods=['GET'])
+def admin_only():
+    """check for the role during login"""
+    claims = get_jwt()
+    role = claims.get("role")
+    if role != 'admin':
+        return jsonify({"error": "Admin access required"}), 403
+    return "Admin Access: Granted"
 
 
 if __name__ == '__main__':
