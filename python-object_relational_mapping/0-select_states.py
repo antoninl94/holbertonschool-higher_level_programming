@@ -5,8 +5,7 @@ This script list all states from a database
 import MySQLdb
 
 if __name__ == "__main__":
-    conn = MySQLdb.connect(host="localhost",
-                           user="root",
+    conn = MySQLdb.connect(user="root",
                            passwd="root",
                            db="hbtn_0e_0_usa")
     cur = conn.cursor()
