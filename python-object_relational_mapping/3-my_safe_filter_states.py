@@ -18,9 +18,9 @@ if __name__ == "__main__":
 
     cur = conn.cursor()
     state_name = sys.argv[4]
-    query = "SELECT * FROM states WHERE name='{}''\
+    query = "SELECT * FROM states WHERE name=%s\
         ORDER BY id".format(state_name)
-    cur.execute(query)
+    cur.execute(query, (state_name,))
     states = cur.fetchall()
 
     for state in states:
