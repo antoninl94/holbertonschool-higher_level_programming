@@ -7,10 +7,10 @@ import MySQLdb
 if __name__ == "__main__":
     conn = MySQLdb.connect(host="localhost",
                            user="root",
-                           passwd="12345",
+                           passwd="root",
                            db="hbtn_0e_0_usa")
     cur = conn.cursor()
-    cur.execute("SELECT * FROM hbtn_0e_0_usa.states")
+    cur.execute("SELECT * FROM states ORDER BY id")
     states = cur.fetchall()
     for state in states:
         print(state)
