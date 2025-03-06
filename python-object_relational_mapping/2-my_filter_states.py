@@ -17,8 +17,7 @@ if __name__ == "__main__":
                            port=3306)
     cur = conn.cursor()
     state_name = sys.argv[4]
-    query = "SELECT * FROM states WHERE name='{}'\
-        ORDER BY id".format(state_name)
+    query = "SELECT * FROM states WHERE name='{}".format(state_name)
     cur.execute(query)
     states = cur.fetchall()
     for state in states:
