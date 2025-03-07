@@ -9,7 +9,6 @@ from model_state import Base, State
 import sys
 
 
-
 if __name__ == "__main__":
     engine = sa.create_engine('mysql+mysqldb://{}:{}@localhost/{}'.format(
         sys.argv[1],
