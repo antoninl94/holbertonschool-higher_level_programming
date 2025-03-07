@@ -19,11 +19,11 @@ if __name__ == "__main__":
                            port=3306)
 
     cur = conn.cursor()
-    state_name = sys.argv[4]
     query = "SELECT cities.name FROM cities\
         JOIN states ON states.id = cities.state_id WHERE states.name=%s\
-            ORDER BY cities.name"
-    cur.execute(query, (state_name,))
+            ORDER BY cities.id"
+    state=sys.argv[4]
+    cur.execute(query, (state,))
     cities = cur.fetchall()
     count = 0
     for city in cities:
