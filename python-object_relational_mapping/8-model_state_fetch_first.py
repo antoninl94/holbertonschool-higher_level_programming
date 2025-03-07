@@ -8,7 +8,6 @@ from model_state import Base, State
 import sys
 
 
-
 if __name__ == "__main__":
     engine = sa.create_engine('mysql+mysqldb://{}:{}@localhost/{}'.format(
         sys.argv[1],
@@ -21,7 +20,10 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=conn)
     session = Session()
 
-    state =session.query(State).order_by(State.id).first()
-    print("{}: {}".format(state.id, state.name))
+    state = session.query(State).order_by(State.id).first()
+    if state is None:
+        print()
+    else:
+        print("{}: {}".format(state.id, state.name))
 
     session.close()
