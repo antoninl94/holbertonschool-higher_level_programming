@@ -5,9 +5,11 @@
 {% endblock %}
 {% block items_list %}
     {% if items %}
-        {% for item in items %}
+        <ul>
+            {% for item in items %}
             <li>{{ item }}</li>
-        {% endfor %}
+            {% endfor %}
+        </ul>
     {% else %}
         <p>No items found</p>
     {% endif %}

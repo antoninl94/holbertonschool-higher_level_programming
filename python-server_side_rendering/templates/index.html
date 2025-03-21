@@ -12,12 +12,12 @@
         <p>This is a simple Flask application.</p>
     {% endblock %}
     <ul>
-        {% block items_list %}
         <li>Flask</li>
         <li>HTML</li>
         <li>Templates</li>
-        {% endblock %}
     </ul>
+    {% block items_list %}
+    {% endblock %}
     {% include "footer.html" %}
 </body>
 </html>
