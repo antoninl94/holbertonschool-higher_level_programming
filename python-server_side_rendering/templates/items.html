@@ -1,0 +1,14 @@
+{% extends "index.html" %}
+
+{% block head %}
+    <title>About Us</title>
+{% endblock %}
+{% block items_list %}
+    {% if items %}
+        {% for item in items %}
+            <li>{{ item }}</li>
+        {% endfor %}
+    {% else %}
+        <p>No items found</p>
+    {% endif %}
+{% endblock %}

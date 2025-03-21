@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% block head %}
     <title>My Flask App</title>
+    {% endblock %}
 </head>
 <body>
     {% include "header.html" %}
@@ -10,9 +12,11 @@
         <p>This is a simple Flask application.</p>
     {% endblock %}
     <ul>
+        {% block items_list %}
         <li>Flask</li>
         <li>HTML</li>
         <li>Templates</li>
+        {% endblock %}
     </ul>
     {% include "footer.html" %}
 </body>
