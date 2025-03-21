@@ -45,8 +45,10 @@ def generate_invitations(template, attendees):
             event_location = "N/A"
 
         # replace placeholder
-        new_template = template.replace("{name}", name).replace("{event_date}", event_date)\
-        .replace("{event_title}", event_title).replace("{event_location}", event_location)
+        new_template = template.replace("{name}", name)\
+            .replace("{event_title}", event_title)\
+            .replace("{event_date}", event_date)\
+            .replace("{event_location}", event_location)
 
         # create the file
         x += 1
